@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add a new student</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #333333;
+            text-align: center;
+        }
+        
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        input[type="text"],
+        input[type="number"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        
+        .homepage-link {
+            display: block;
+            margin: 0 auto;
+            margin-top: 10px;
+            color: #ffffff;
+            text-decoration: none;
+            background-color: #4caf50;
+            padding: 10px;
+            width: 120px;
+            text-align: center;
+            border-radius: 3px;
+        }
+        
+        .homepage-link:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add a new student</h1>
+    <form method="POST" action="/add_student" onsubmit="return validateForm()">
+        <input type="text" name="full_name" id="full_name" placeholder="Full Name" required><br>
+        <input type="text" name="age" id="age" placeholder="Age" required><br>
+        <input type="text" name="grade" id="grade" placeholder="Grade" required><br>
+        <input type="text" name="subject" id="subject" placeholder="Subject" required><br>
+        <input type="number" name="semester_number" id="semester_number" placeholder="Semester Number" required><br>
+        <input type="number" name="start_year" id="start_year" placeholder="Start Year" required><br>
+
+        <input type="submit" value="Add">
+    </form>
+
+    <a href="{{ url_for('index') }}" class="homepage-link">Go to Homepage</a>
+
+    <script>
+        function validateForm() {
+            var fullName = document.getElementById('full_name').value;
+            var age = document.getElementById('age').value;
+            var grade = document.getElementById('grade').value;
+            var subject = document.getElementById('subject').value;
+            var semesterNumber = document.getElementById('semester_number').value;
+            var startYear = document.getElementById('start_year').value;
+            return true;
+        }
+    </script>
+</body>
+</html>

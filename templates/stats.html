@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Statistics</title>
+</head>
+<body>
+    
+	<h1>Statistics</h1>
+    <a href="{{ url_for('index') }}">Go to homepage</a>
+	<ul>
+		<li>Average grade: {{ average_grade }}</li>
+		<li>Max grade: {{ max_grade }}</li>
+		<li>Min grade: {{ min_grade }}</li>
+		<li>Oldest student: {{ oldest_student.full_name }}, {{ oldest_student.age }}</li>
+		<li>Youngest student: {{ youngest_student.full_name }}, {{ youngest_student.age }}</li>
+	</ul>
+</body>
+</html>

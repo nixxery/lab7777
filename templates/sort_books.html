@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sort Students</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #333333;
+            text-align: center;
+        }
+        
+        a {
+            display: block;
+            text-align: center;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: #333333;
+        }
+        
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        label {
+            font-weight: bold;
+        }
+        
+        select, input[type="submit"] {
+            padding: 8px;
+            margin: 4px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #cccccc;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .homepage-link {
+            display: block;
+            margin: 0 auto;
+            margin-top: 10px;
+            color: #ffffff;
+            text-decoration: none;
+            background-color: #4caf50;
+            padding: 10px;
+            width: 120px;
+            text-align: center;
+            border-radius: 3px;
+        }
+        
+        .homepage-link:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sort Students</h1>
+    
+    <form method="POST" action="{{ url_for('sort_students') }}">
+        <label for="sort_attribute">Sort by:</label>
+        <select name="attribute" id="sort_attribute">
+            <option value="name">Name</option>
+            <option value="age">Age</option>
+            <option value="gpa">GPA</option>
+            <option value="subject">Subject</option>
+            <option value="semester_number">Semester Number</option>
+            <option value="start_year">Start Year</option>
+        </select>
+        <input type="submit" value="Sort">
+    </form>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>GPA</th>
+                <th>Subject</th>
+                <th>Semester Number</th>
+                <th>Start Year</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.full_name }}</td>
+                <td>{{ student.age }}</td>
+                <td>{{ student.grade }}</td>
+                <td>{{ student.subject }}</td>
+                <td>{{ student.semester_number }}</td>
+                <td>{{ student.start_year }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('index') }}" class="homepage-link">Go to Homepage</a>
+</body>
+</html>

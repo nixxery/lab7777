@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Student</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #333333;
+            text-align: center;
+        }
+        
+        a {
+            display: block;
+            text-align: center;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: #333333;
+        }
+        
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        input[type="text"], button {
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        .homepage-link {
+            display: block;
+            margin: 0 auto;
+            margin-top: 10px;
+            color: #ffffff;
+            text-decoration: none;
+            background-color: #4caf50;
+            padding: 10px;
+            width: 120px;
+            text-align: center;
+            border-radius: 3px;
+        }
+        
+        .homepage-link:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Update Student</h1>
+    <form method="POST" action="/update_student">
+        <input type="text" name="old_full_name" placeholder="Old Full Name" required><br>
+        <input type="text" name="new_full_name" placeholder="New Full Name" required><br>
+        <input type="text" name="age" placeholder="Age" required><br>
+        <input type="text" name="grade" placeholder="Grade" required><br>
+        <input type="text" name="subject" placeholder="Subject" required><br>
+        <input type="text" name="semester_number" placeholder="Semester Number" required><br>
+        <input type="text" name="start_year" placeholder="Start Year" required><br>
+        <button type="submit">Update Student</button>
+    </form>
+    <a href="{{ url_for('index') }}" class="homepage-link">Go to Homepage</a>
+</body>
+</html>

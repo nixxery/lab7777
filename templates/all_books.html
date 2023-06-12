@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Students</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #333333;
+            text-align: center;
+        }
+        
+        .button-link {
+            display: inline-block;
+            padding: 10px;
+            background-color: transparent;
+            border: none;
+            text-decoration: underline;
+            color: #333333;
+            cursor: pointer;
+        }
+        
+        .button-link:hover {
+            text-decoration: none;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #cccccc;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .homepage-link {
+            display: block;
+            margin: 0 auto;
+            margin-top: 10px;
+            color: #ffffff;
+            text-decoration: none;
+            background-color: #4caf50;
+            padding: 10px;
+            width: 120px;
+            text-align: center;
+            border-radius: 3px;
+        }
+        
+        .homepage-link:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>All Students</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Subject</th>
+                <th>Semester Number</th>
+                <th>Grade</th>
+                <th>Start Year</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.full_name }}</td>
+                <td>{{ student.subject }}</td>
+                <td>{{ student.semester_number }}</td>
+                <td>{{ student.grade }}</td>
+                <td>{{ student.start_year }}</td>
+                <td>{{ student.age }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('index') }}" class="homepage-link">Go to Homepage</a>
+</body>
+</html>

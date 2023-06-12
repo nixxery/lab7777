@@ -1,0 +1,211 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "book API",
+    "version": "1.0.0",
+    "description": "API for managing book data"
+  },
+  "basePath": "/api",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/students": {
+      "get": {
+        "summary": "Get all students",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Book"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new book!!!!!!!!!!!!!!!!!!!!!!",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Student object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Book"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/Book"
+            }
+          }
+        }
+      }
+    },
+    "/students/{full_name}": {
+      "get": {
+        "summary": "Get a student by full name",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "book_name",
+            "description": "Full name of the student",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Book"
+            }
+          },
+          "404": {
+            "description": "Student not found"
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a student by full name",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "book_name",
+            "description": "Full name of the student",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Updated student object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Student"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Student"
+            }
+          },
+          "404": {
+            "description": "Student not found"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update specific fields of a student by full name",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "book_name",
+            "description": "Full name of the student",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Fields to update",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/StudentPatch"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Student"
+            }
+          },
+          "404": {
+            "description": "Student not found"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a student by full name",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "full_name",
+            "description": "Full name of the student",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Student not found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Book": {
+      "type": "object",
+      "required": [
+        "book_name",
+        "author_name",
+        "janre",
+        "write_date"
+      ],
+      "properties": {
+        "book_name": {
+          "type": "string",
+          "description": "Full name of the student"
+        },
+        "author_name": {
+          "type": "String",
+          "description": "Age of the student"
+        },
+        "janre": {
+          "type": "String",
+          "description": "Age of the student"
+        },
+        "write_date": {
+          "type": "integer",
+          "description": "Grade of the student"
+        }
+      }
+    },
+    "BookPatch": {
+      "type": "object",
+      "properties": {
+        "book_name": {
+          "type": "string",
+          "description": "Full name of the student"
+        },
+        "author_name": {
+          "type": "String",
+          "description": "Age of the student"
+        },
+        "janre": {
+          "type": "String",
+          "description": "Age of the student"
+        },
+        "write_date": {
+          "type": "integer",
+          "description": "Grade of the student"
+        }
+      }
+    }
+  }
+}
